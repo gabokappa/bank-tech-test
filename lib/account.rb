@@ -10,4 +10,8 @@ attr_reader :balance
     @balance =- ammount
   end
 
+  def print_statement
+    puts "date || credit || debit || balance"
+  end
+
 end

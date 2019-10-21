@@ -16,4 +16,12 @@ describe Account do
     end
   end
 
+  describe "#print_statement" do
+    it "prints out account statement in a specific format" do
+      expect { account.print_statement }. to output("date || credit || debit || balance\n").to_stdout
+    end
+  end
+
+
+
 end
