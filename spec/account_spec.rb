@@ -27,6 +27,14 @@ describe Account do
     end
   end
 
+  describe 'balance changes' do
+    it 'correctly changes the balance ammount based on events' do
+      account.deposit(1000)
+      account.withdraw(930.50)
+      expect(account.balance).to eq(69.50)
+    end
+  end
+
   describe ' #print_statement' do
     it 'prints out a statement header in a specific format' do
       expect { account.print_statement }. to output("date || credit || debit || balance\n").to_stdout
@@ -46,4 +54,5 @@ describe Account do
 21/10/2019 || 100.00 || || 100.00\n").to_stdout
     end
   end
+
 end
