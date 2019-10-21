@@ -42,8 +42,9 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  bundler
   rspec
-  rubocop
+  rubocop (~> 0.75.0)
   simplecov
 
 BUNDLED WITH

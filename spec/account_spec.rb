@@ -37,7 +37,7 @@ describe Account do
   end
 
   describe ' #add_activity' do
-    context "The balance has been set to 20" do
+    context 'The balance has been set to 20' do
       before(:each) do
         account.instance_variable_set(:@balance, 20)
         @t = Time.now.strftime('%d/%m/%Y')
@@ -47,7 +47,7 @@ describe Account do
         expect(account.activity).to eq ["#{@t} || 20.00 || || 20.00"]
       end
 
-      it 'adds a withdraw event as a formatted string into the activity array' do
+      it 'adds a formatted string into the activity array for withdraw event' do
         account.send(:add_activity, 10, 'withdraw')
         expect(account.activity).to eq ["#{@t} || || 10.00 || 20.00"]
       end
@@ -73,5 +73,4 @@ describe Account do
 21/10/2019 || 100.00 || || 100.00\n").to_stdout
     end
   end
-
 end
