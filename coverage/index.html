@@ -14,7 +14,7 @@
       <img src="./assets/0.10.2/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" style="display:none;">
-      <div class="timestamp">Generated <abbr class="timeago" title="2019-10-21T18:17:19+01:00">2019-10-21T18:17:19+01:00</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2019-10-21T18:51:45+01:00">2019-10-21T18:51:45+01:00</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
@@ -53,7 +53,7 @@
       <tr>
         <td class="strong"><a href="#fafc2d2b5d767e56de4c181c07e373c23d7f92ee" class="src_link" title="lib/account.rb">lib/account.rb</a></td>
         <td class="green strong">100.0 %</td>
-        <td>32</td>
+        <td>34</td>
         <td>20</td>
         <td>20</td>
         <td>0</td>
@@ -63,7 +63,7 @@
       <tr>
         <td class="strong"><a href="#486864a10d2c0e3bf0a5aa9e063eb6800e5f30d1" class="src_link" title="spec/account_spec.rb">spec/account_spec.rb</a></td>
         <td class="green strong">100.0 %</td>
-        <td>76</td>
+        <td>77</td>
         <td>45</td>
         <td>45</td>
         <td>0</td>
@@ -232,61 +232,73 @@
           <code class="ruby">  end</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="23">
-          <span class="hits">1</span>
+        <li class="never" data-hits="" data-linenumber="23">
           
-          <code class="ruby">private</code>
+          
+          <code class="ruby"></code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="24">
           <span class="hits">1</span>
           
+          <code class="ruby">private</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="25">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="26">
+          <span class="hits">1</span>
+          
           <code class="ruby">  def add_activity(amount, event, time = Time.now)</code>
         </li>
       
-        <li class="covered" data-hits="11" data-linenumber="25">
+        <li class="covered" data-hits="11" data-linenumber="27">
           <span class="hits">11</span>
           
           <code class="ruby">    t = time.strftime(&#39;%d/%m/%Y&#39;)</code>
         </li>
       
-        <li class="covered" data-hits="11" data-linenumber="26">
+        <li class="covered" data-hits="11" data-linenumber="28">
           <span class="hits">11</span>
           
           <code class="ruby">    if event == &#39;deposit&#39;</code>
         </li>
       
-        <li class="covered" data-hits="6" data-linenumber="27">
+        <li class="covered" data-hits="6" data-linenumber="29">
           <span class="hits">6</span>
           
           <code class="ruby">      @activity.push(&quot;#{t} || #{sprintf(&quot;%.2f&quot;, amount)} || || #{sprintf(&quot;%.2f&quot;, @balance)}&quot;)</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="28">
+        <li class="never" data-hits="" data-linenumber="30">
           
           
           <code class="ruby">    else</code>
         </li>
       
-        <li class="covered" data-hits="5" data-linenumber="29">
+        <li class="covered" data-hits="5" data-linenumber="31">
           <span class="hits">5</span>
           
           <code class="ruby">      @activity.push(&quot;#{t} || || #{sprintf(&quot;%.2f&quot;, amount)} || #{sprintf(&quot;%.2f&quot;, @balance)}&quot;)</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="30">
+        <li class="never" data-hits="" data-linenumber="32">
           
           
           <code class="ruby">    end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="31">
+        <li class="never" data-hits="" data-linenumber="33">
           
           
           <code class="ruby">  end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="32">
+        <li class="never" data-hits="" data-linenumber="34">
           
           
           <code class="ruby">end</code>
@@ -458,13 +470,13 @@
         <li class="covered" data-hits="1" data-linenumber="25">
           <span class="hits">1</span>
           
-          <code class="ruby">      account.withdraw(10)</code>
+          <code class="ruby">      t = Time.now.strftime(&#39;%d/%m/%Y&#39;)</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="26">
           <span class="hits">1</span>
           
-          <code class="ruby">      t = Time.now.strftime(&#39;%d/%m/%Y&#39;)</code>
+          <code class="ruby">      account.withdraw(10)</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="27">
@@ -548,220 +560,226 @@
         <li class="covered" data-hits="1" data-linenumber="40">
           <span class="hits">1</span>
           
-          <code class="ruby">    it &#39;adds a deposit event as a formatted string into the activity array&#39; do</code>
+          <code class="ruby">    context &quot;The balance has been set to 20&quot; do</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="41">
           <span class="hits">1</span>
           
-          <code class="ruby">      t = Time.now.strftime(&#39;%d/%m/%Y&#39;)</code>
+          <code class="ruby">      before(:each) do</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="42">
+        <li class="covered" data-hits="2" data-linenumber="42">
+          <span class="hits">2</span>
+          
+          <code class="ruby">        account.instance_variable_set(:@balance, 20)</code>
+        </li>
+      
+        <li class="covered" data-hits="2" data-linenumber="43">
+          <span class="hits">2</span>
+          
+          <code class="ruby">        @t = Time.now.strftime(&#39;%d/%m/%Y&#39;)</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="44">
+          
+          
+          <code class="ruby">      end</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="45">
           <span class="hits">1</span>
           
-          <code class="ruby">      account.instance_variable_set(:@balance, 20)</code>
+          <code class="ruby">      it &#39;adds a deposit event as a formatted string into the activity array&#39; do</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="43">
+        <li class="covered" data-hits="1" data-linenumber="46">
           <span class="hits">1</span>
           
-          <code class="ruby">      account.send(:add_activity, 20, &#39;deposit&#39;)</code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="44">
-          <span class="hits">1</span>
-          
-          <code class="ruby">      expect(account.activity).to eq [&quot;#{t} || 20.00 || || 20.00&quot;]</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="45">
-          
-          
-          <code class="ruby">    end</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="46">
-          
-          
-          <code class="ruby"></code>
+          <code class="ruby">        account.send(:add_activity, 20, &#39;deposit&#39;)</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="47">
           <span class="hits">1</span>
           
-          <code class="ruby">    it &#39;adds a withdraw event as a formatted string into the activity array&#39; do</code>
+          <code class="ruby">        expect(account.activity).to eq [&quot;#{@t} || 20.00 || || 20.00&quot;]</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="48">
-          <span class="hits">1</span>
+        <li class="never" data-hits="" data-linenumber="48">
           
-          <code class="ruby">      t = Time.now.strftime(&#39;%d/%m/%Y&#39;)</code>
+          
+          <code class="ruby">      end</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="49">
-          <span class="hits">1</span>
+        <li class="never" data-hits="" data-linenumber="49">
           
-          <code class="ruby">      account.instance_variable_set(:@balance, 20)</code>
+          
+          <code class="ruby"></code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="50">
           <span class="hits">1</span>
           
-          <code class="ruby">      account.send(:add_activity, 10, &#39;withdraw&#39;)</code>
+          <code class="ruby">      it &#39;adds a withdraw event as a formatted string into the activity array&#39; do</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="51">
           <span class="hits">1</span>
           
-          <code class="ruby">      expect(account.activity).to eq [&quot;#{t} || || 10.00 || 20.00&quot;]</code>
+          <code class="ruby">        account.send(:add_activity, 10, &#39;withdraw&#39;)</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="52">
+        <li class="covered" data-hits="1" data-linenumber="52">
+          <span class="hits">1</span>
           
-          
-          <code class="ruby">    end</code>
+          <code class="ruby">        expect(account.activity).to eq [&quot;#{@t} || || 10.00 || 20.00&quot;]</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="53">
           
           
-          <code class="ruby"></code>
+          <code class="ruby">      end</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="54">
           
           
-          <code class="ruby">  end</code>
+          <code class="ruby">    end</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="55">
           
           
-          <code class="ruby"></code>
+          <code class="ruby">  end</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="56">
-          <span class="hits">1</span>
+        <li class="never" data-hits="" data-linenumber="56">
           
-          <code class="ruby">  describe &#39; #print_statement&#39; do</code>
+          
+          <code class="ruby"></code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="57">
           <span class="hits">1</span>
           
+          <code class="ruby">  describe &#39; #print_statement&#39; do</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="58">
+          <span class="hits">1</span>
+          
           <code class="ruby">    it &#39;prints out a statement header in a specific format&#39; do</code>
         </li>
       
-        <li class="covered" data-hits="2" data-linenumber="58">
+        <li class="covered" data-hits="2" data-linenumber="59">
           <span class="hits">2</span>
           
           <code class="ruby">      expect { account.print_statement }. to output(&quot;date || credit || debit || balance\n&quot;).to_stdout</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="59">
+        <li class="never" data-hits="" data-linenumber="60">
           
           
           <code class="ruby">    end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="60">
+        <li class="never" data-hits="" data-linenumber="61">
           
           
           <code class="ruby"></code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="61">
-          <span class="hits">1</span>
-          
-          <code class="ruby">    it &#39;prints out a statement with a header and event&#39; do</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="62">
           <span class="hits">1</span>
           
+          <code class="ruby">    it &#39;prints out a statement with a header and event&#39; do</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="63">
+          <span class="hits">1</span>
+          
           <code class="ruby">      account.deposit(100)</code>
         </li>
       
-        <li class="covered" data-hits="2" data-linenumber="63">
+        <li class="covered" data-hits="2" data-linenumber="64">
           <span class="hits">2</span>
           
           <code class="ruby">      expect { account.print_statement }. to output(&quot;date || credit || debit || balance</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="64">
-          
-          
-          <code class="ruby">21/10/2019 || 100.00 || || 100.00\n&quot;).to_stdout</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="65">
           
           
-          <code class="ruby">    end</code>
+          <code class="ruby">21/10/2019 || 100.00 || || 100.00\n&quot;).to_stdout</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="66">
           
           
-          <code class="ruby"></code>
+          <code class="ruby">    end</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="67">
-          <span class="hits">1</span>
+        <li class="never" data-hits="" data-linenumber="67">
           
-          <code class="ruby">    it &#39;prints out a statement with the most recent event at the top&#39; do</code>
+          
+          <code class="ruby"></code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="68">
           <span class="hits">1</span>
           
-          <code class="ruby">      account.deposit(100)</code>
+          <code class="ruby">    it &#39;prints out a statement with the most recent event at the top&#39; do</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="69">
           <span class="hits">1</span>
           
+          <code class="ruby">      account.deposit(100)</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="70">
+          <span class="hits">1</span>
+          
           <code class="ruby">      account.withdraw(10)</code>
         </li>
       
-        <li class="covered" data-hits="2" data-linenumber="70">
+        <li class="covered" data-hits="2" data-linenumber="71">
           <span class="hits">2</span>
           
           <code class="ruby">      expect { account.print_statement }. to output(&quot;date || credit || debit || balance</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="71">
+        <li class="never" data-hits="" data-linenumber="72">
           
           
           <code class="ruby">21/10/2019 || || 10.00 || 90.00</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="72">
+        <li class="never" data-hits="" data-linenumber="73">
           
           
           <code class="ruby">21/10/2019 || 100.00 || || 100.00\n&quot;).to_stdout</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="73">
+        <li class="never" data-hits="" data-linenumber="74">
           
           
           <code class="ruby">    end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="74">
+        <li class="never" data-hits="" data-linenumber="75">
           
           
           <code class="ruby">  end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="75">
+        <li class="never" data-hits="" data-linenumber="76">
           
           
           <code class="ruby"></code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="76">
+        <li class="never" data-hits="" data-linenumber="77">
           
           
           <code class="ruby">end</code>

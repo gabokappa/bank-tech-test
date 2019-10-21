@@ -1,0 +1,3 @@
+Allcops:
+  Exclude:
+    - 'spec/spec_helper.rb'

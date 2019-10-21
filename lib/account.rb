@@ -20,7 +20,9 @@ attr_reader :balance, :activity
       puts "date || credit || debit || balance"
       @activity.reverse.each { |event| puts event }
   end
+
 private
+
   def add_activity(amount, event, time = Time.now)
     t = time.strftime('%d/%m/%Y')
     if event == 'deposit'
