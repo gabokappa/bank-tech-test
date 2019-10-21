@@ -28,9 +28,22 @@ describe Account do
   end
 
   describe ' #print_statement' do
-    it 'prints out account statement in a specific format' do
+    it 'prints out a statement header in a specific format' do
       expect { account.print_statement }. to output("date || credit || debit || balance\n").to_stdout
     end
-  end
 
+    it 'prints out a statement with a header and event' do
+      account.deposit(100)
+      expect { account.print_statement }. to output("date || credit || debit || balance
+21/10/2019 || 100.00 || || 100.00\n").to_stdout
+    end
+
+    it 'prints out a statement with the most recent event at the top' do
+      account.deposit(100)
+      account.withdraw(10)
+      expect { account.print_statement }. to output("date || credit || debit || balance
+21/10/2019 || || 10.00 || 90.00
+21/10/2019 || 100.00 || || 100.00\n").to_stdout
+    end
+  end
 end
