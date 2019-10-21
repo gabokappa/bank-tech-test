@@ -7,15 +7,13 @@ attr_reader :balance, :activity
   end
 
   def deposit(amount)
-    t = Time.now.strftime('%d/%m/%Y')
     @balance += amount.to_f
-    @activity.push("#{t} || #{sprintf("%.2f", amount)} || || #{sprintf("%.2f", @balance)}")
+    add_activity(amount, "deposit")
   end
 
   def withdraw(amount)
-    t = Time.now.strftime('%d/%m/%Y')
     @balance -= amount.to_f
-    @activity.push("#{t} || || #{sprintf("%.2f", amount)} || #{sprintf("%.2f", @balance)}")
+    add_activity(amount, 'withdraw')
   end
 
   def print_statement
@@ -27,6 +25,8 @@ attr_reader :balance, :activity
     t = t = Time.now.strftime('%d/%m/%Y')
     if event == 'deposit'
       @activity.push("#{t} || #{sprintf("%.2f", amount)} || || #{sprintf("%.2f", @balance)}")
+    else
+      @activity.push("#{t} || || #{sprintf("%.2f", amount)} || #{sprintf("%.2f", @balance)}")
     end
   end
 end
