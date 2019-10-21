@@ -8,9 +8,10 @@ describe Account do
       expect(account.balance).to eq(10)
     end
 
-    it 'stores the timestamp and amount of the deposit' do
+    it 'stores the timestamp, the deposit and the balance' do
+      t = Time.now.strftime('%d/%m/%Y')
       account.deposit(10)
-      expect(account.activity).to eq ["21/10/2019 || 10.00 || || 10.00"]
+      expect(account.activity).to eq ["#{t} || 10.00 || || 10.00"]
     end
   end
 
@@ -20,7 +21,7 @@ describe Account do
       expect(account.balance).to eq(-10)
     end
 
-    it 'stores the timestamp the balance withdraw ' do
+    it 'stores the timestamp, the withdrawn amount and balance' do
       account.withdraw(10)
       t = Time.now.strftime('%d/%m/%Y')
       expect(account.activity).to eq ["#{t} || || 10.00 || -10.00"]
@@ -32,6 +33,14 @@ describe Account do
       account.deposit(1000)
       account.withdraw(930.50)
       expect(account.balance).to eq(69.50)
+    end
+  end
+
+  describe ' #add_activity' do
+    it 'adds a deposit event as a formatted string into the activity array' do
+      t = Time.now.strftime('%d/%m/%Y')
+      account.add_activity(20, 'deposit')
+      expect(account.activity).to eq ["#{t} || 20.00 || || 20.00"]
     end
   end
 

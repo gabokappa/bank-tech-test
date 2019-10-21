@@ -19,12 +19,7 @@ attr_reader :balance, :activity
   end
 
   def print_statement
-    header = "date || credit || debit || balance"
-    if @activity.length == 0
-      puts header
-    else
-      puts header
+      puts "date || credit || debit || balance"
       @activity.reverse.each { |event| puts event }
-    end
   end
 end
