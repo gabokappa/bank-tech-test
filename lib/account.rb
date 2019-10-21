@@ -13,7 +13,10 @@ attr_reader :balance, :activity
   end
 
   def withdraw(amount)
+    t = Time.now.strftime('%d/%m/%Y')
     @balance =- amount
+    @activity.push("#{t} || || #{sprintf("%.2f", amount)} || #{sprintf("%.2f", @balance)}")
+
   end
 
   def print_statement
