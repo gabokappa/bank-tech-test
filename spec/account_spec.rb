@@ -40,14 +40,14 @@ describe Account do
     it 'adds a deposit event as a formatted string into the activity array' do
       t = Time.now.strftime('%d/%m/%Y')
       account.instance_variable_set(:@balance, 20)
-      account.add_activity(20, 'deposit')
+      account.send(:add_activity, 20, 'deposit')
       expect(account.activity).to eq ["#{t} || 20.00 || || 20.00"]
     end
 
     it 'adds a withdraw event as a formatted string into the activity array' do
       t = Time.now.strftime('%d/%m/%Y')
       account.instance_variable_set(:@balance, 20)
-      account.add_activity(10, 'withdraw')
+      account.send(:add_activity, 10, 'withdraw')
       expect(account.activity).to eq ["#{t} || || 10.00 || 20.00"]
     end
 
