@@ -4,7 +4,7 @@ class Account
   def initialize(overdraft = -100)
     @balance = 0
     @activity = []
-    @overdraft= overdraft
+    @overdraft = overdraft
   end
 
   def deposit(amount)
@@ -13,7 +13,7 @@ class Account
   end
 
   def withdraw(amount)
-    fail 'ERROR overdraft limit reached' if @balance - amount < @overdraft
+    raise 'ERROR overdraft limit reached' if @balance - amount < @overdraft
 
     @balance -= amount.to_f
     add_activity(amount, 'withdraw')
@@ -28,8 +28,8 @@ class Account
 
   def add_activity(amount, event, date = Time.now)
     d = date.strftime('%d/%m/%Y')
-    amount_string = format('%<digits>.2f', digits: amount)
-    balance_string = format('%<digits>.2f', digits: @balance)
+    amount_string = format('%<decimals>.2f', decimals: amount)
+    balance_string = format('%<decimals>.2f', decimals: @balance)
     if event == 'deposit'
       @activity.push("#{d} || #{amount_string} || || #{balance_string}")
     else

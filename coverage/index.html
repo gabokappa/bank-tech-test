@@ -14,7 +14,7 @@
       <img src="./assets/0.10.2/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" style="display:none;">
-      <div class="timestamp">Generated <abbr class="timeago" title="2019-10-22T10:39:00+01:00">2019-10-22T10:39:00+01:00</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2019-10-22T11:16:26+01:00">2019-10-22T11:16:26+01:00</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
@@ -169,7 +169,7 @@
         <li class="covered" data-hits="12" data-linenumber="7">
           <span class="hits">12</span>
           
-          <code class="ruby">    @overdraft= overdraft</code>
+          <code class="ruby">    @overdraft = overdraft</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="8">
@@ -223,7 +223,7 @@
         <li class="covered" data-hits="6" data-linenumber="16">
           <span class="hits">6</span>
           
-          <code class="ruby">    fail &#39;ERROR overdraft limit reached&#39; if @balance - amount &lt; @overdraft</code>
+          <code class="ruby">    raise &#39;ERROR overdraft limit reached&#39; if @balance - amount &lt; @overdraft</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="17">
@@ -313,13 +313,13 @@
         <li class="covered" data-hits="13" data-linenumber="31">
           <span class="hits">13</span>
           
-          <code class="ruby">    amount_string = format(&#39;%&lt;digits&gt;.2f&#39;, digits: amount)</code>
+          <code class="ruby">    amount_string = format(&#39;%&lt;decimals&gt;.2f&#39;, decimals: amount)</code>
         </li>
       
         <li class="covered" data-hits="13" data-linenumber="32">
           <span class="hits">13</span>
           
-          <code class="ruby">    balance_string = format(&#39;%&lt;digits&gt;.2f&#39;, digits: @balance)</code>
+          <code class="ruby">    balance_string = format(&#39;%&lt;decimals&gt;.2f&#39;, decimals: @balance)</code>
         </li>
       
         <li class="covered" data-hits="13" data-linenumber="33">
