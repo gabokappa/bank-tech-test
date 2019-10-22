@@ -4,7 +4,10 @@ This is my proposed solution to the Bank tech test which is run in the command-l
 
 ## Table of contents
 * [Installation](#installation-and-usage)
-* [Original Instructions](#original-instructions-below)
+* [Usage](#usage)
+* [Requirements](#requirements)
+* [Approach](#approach)
+* [Tests](#tests)
 
 ## Installation and usage
 
@@ -87,11 +90,11 @@ From the user stories I broke down the requirements into a diagram
 
 **Account** |
 --- |
-*@balance; @activity; @overdraft* |
- **deposit;** |
- **withdraw;** |
- **print_statement;** |
- **add_activity;** |
+*@balance; @activity; @overdraft;* |
+ **deposit** |
+ **withdraw** |
+ **print_statement** |
+ **add_activity** |
  
  I decided to have one Account class, that would instantiate with the  ``@balance`` ``@activity`` and ``@overdraft``*attributes*.
  And create a series of methods ``deposit`` ``withdraw`` and ``print_statment`` that would carry out the three key requirements in the user stories.
@@ -102,7 +105,7 @@ From the user stories I broke down the requirements into a diagram
  --- |
  (*args*) *ammount* |
  @balance |
- add_activity | 
+ **add_activity** | 
  
  A ``deposit`` method would take an amount as an argument. It would need to know ``@balance`` to add the amount to it and be able to pass information to ``add_activity``
  method so that the activity is recorded.
@@ -112,7 +115,7 @@ From the user stories I broke down the requirements into a diagram
   (*args*) *ammount* |
   @balance |
   @overdraft |
-  add_activity |   
+  **add_activity** |   
 
 A ``withdraw`` method would act similar to the deposit, only that it would subtract the amount from the balance.
 It would need to know the ``@overdraft`` limit to throw an error if the withdraw goes over the limit.
@@ -130,6 +133,8 @@ through the ``@activity`` to print out each transaction under a 'header'.
    (*args*) *ammount*, *event*, *date* |
    @balance |
    @activity |
+ 
+ 
  A private method that takes three arguments, and amount an event type("deposit" or "withdraw") and a date. The date
  has default to when the method is invoked. The methods needs to know ``@balance`` in order to pass the activity into the ``@activity`` log.
  This method is private as is not intended for the user to call directly and for internal operation of the ``deposit`` and ``withdraw`` methods.
@@ -146,7 +151,7 @@ through the ``@activity`` to print out each transaction under a 'header'.
  
 ## Edge case
 
-- In order to prevent an infinite number of withdrawals and having high negative balance I added an overdraft limit.
+ In order to prevent an infinite number of withdrawals and having high negative balance I added an overdraft limit.
 This has a default set to -100 when the Account is instantiated. Just like real life accounts different limits can be set
 on different instances of an account which the user can set upon instantiation.
 
