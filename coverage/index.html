@@ -14,7 +14,7 @@
       <img src="./assets/0.10.2/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" style="display:none;">
-      <div class="timestamp">Generated <abbr class="timeago" title="2019-10-22T08:42:30+01:00">2019-10-22T08:42:30+01:00</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2019-10-22T09:54:14+01:00">2019-10-22T09:54:14+01:00</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
@@ -736,7 +736,7 @@
         <li class="covered" data-hits="2" data-linenumber="17">
           <span class="hits">2</span>
           
-          <code class="ruby">      expect { account.print_statement }. to output(&quot;#{@header}#{deposit}&quot;).to_stdout</code>
+          <code class="ruby">      expect { account.print_statement }. to output(@header + deposit).to_stdout</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="18">
@@ -772,19 +772,19 @@
         <li class="covered" data-hits="1" data-linenumber="23">
           <span class="hits">1</span>
           
-          <code class="ruby">      deposit = &quot;#{@date} || || 10.00 || 90.00\n&quot;</code>
+          <code class="ruby">      deposit = &quot;#{@date} || 100.00 || || 100.00\n&quot;</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="24">
           <span class="hits">1</span>
           
-          <code class="ruby">      withdraw = &quot;#{@date} || 100.00 || || 100.00\n&quot;</code>
+          <code class="ruby">      withdraw = &quot;#{@date} || || 10.00 || 90.00\n&quot;</code>
         </li>
       
         <li class="covered" data-hits="2" data-linenumber="25">
           <span class="hits">2</span>
           
-          <code class="ruby">      expect { account.print_statement }. to output(@header + deposit + withdraw).to_stdout</code>
+          <code class="ruby">      expect { account.print_statement }. to output(@header + withdraw + deposit).to_stdout</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="26">
