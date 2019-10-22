@@ -1,7 +1,6 @@
 require 'account'
 describe Account do
   subject(:account) { described_class.new }
-
   describe ' #add_activity' do
     context 'The balance has been set to 20' do
       before(:each) do

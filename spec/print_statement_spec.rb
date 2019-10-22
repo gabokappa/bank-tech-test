@@ -5,6 +5,7 @@ describe Account do
   describe ' #print_statement' do
     context 'the statement has a formatted header' do
       before(:each) do
+        @date = Time.now.strftime('%d/%m/%Y')
         @header = "date || credit || debit || balance\n"
       end
 
@@ -14,15 +15,15 @@ describe Account do
 
       it 'prints out a statement with a header and event' do
         account.deposit(100)
-        deposit = "21/10/2019 || 100.00 || || 100.00\n"
+        deposit = "#{@date} || 100.00 || || 100.00\n"
         expect { account.print_statement }. to output("#{@header}#{deposit}").to_stdout
       end
 
       it 'prints out a statement with the most recent event at the top' do
         account.deposit(100)
         account.withdraw(10)
-        deposit = "21/10/2019 || || 10.00 || 90.00\n"
-        withdraw = "21/10/2019 || 100.00 || || 100.00\n"
+        deposit = "#{@date} || || 10.00 || 90.00\n"
+        withdraw = "#{@date} || 100.00 || || 100.00\n"
         expect { account.print_statement }. to output(@header + deposit + withdraw).to_stdout
       end
     end
