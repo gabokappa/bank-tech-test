@@ -140,7 +140,22 @@ through the ``@activity`` to print out each transaction under a 'header'.
  This method is private as is not intended for the user to call directly and for internal operation of the ``deposit`` and ``withdraw`` methods.
  
  I have also set the date as a parameter with a default value for the purposes of giving the option to insert a specified date.
- This would only require a small change as to how the method is called. 
+ This would only require a small change as to how the method is called.
+ 
+ ### Edge case
+ 
+  In order to prevent an infinite number of withdrawals and having high negative balance I added an overdraft limit.
+ This has a default set to -100 when the Account is instantiated. Just like real life accounts different limits can be set
+ on different instances of an account which the user can set upon instantiation.
+ 
+ ### Trade-offs
+ 
+ I'm aware that the private method ``add_activity`` has many lines and this could be refactored further.
+ I tried changing ``add_activity`` so that it pushed individual transactions as a key/value hash in ``@activity``, to later get the
+ ``print_statement`` method to format into specified string. I also thought that ``deposit`` and ``withdraw`` could format the amount
+ before calling ``add_activity``. I felt that these alternative implementations would lead to duplication of code further split responsibilities and affect readability.
+  
+  Ultimately I decided to introduce another private method and retained the current state as I believe this way it is easier to read each method and understand what function it has. 
  
  ## Tests
  
@@ -148,18 +163,3 @@ through the ``@activity`` to print out each transaction under a 'header'.
  
  I decided to split test files per method being tested. I tested the private method ``spec/add_activity_spec.rb`` to ensure it was putting through
  the right formatted string into ``@activity``. I wanted to test it worked in isolation from being called by the ``deposit`` or ``withdraw`` methods.
- 
-## Edge case
-
- In order to prevent an infinite number of withdrawals and having high negative balance I added an overdraft limit.
-This has a default set to -100 when the Account is instantiated. Just like real life accounts different limits can be set
-on different instances of an account which the user can set upon instantiation.
-
-## Trade-offs
-
-I'm aware that the private method ``add_activity`` has many lines and this could be refactored further.
-I tried changing ``add_activity`` so that it pushed individual transactions as a key/value hash in ``@activity``, to later get the
-``print_statement`` method to format into specified string. I also thought that ``deposit`` and ``withdraw`` could format the amount
-before calling ``add_activity``. I felt that these alternative implementations would lead to duplication of code further split responsibilities and affect readability.
- 
- Ultimately I decided to introduce another private method and retained the current state as I believe this way it is easier to read each method and understand what function it has.
