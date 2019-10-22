@@ -23,14 +23,14 @@ class Account
 
   private
 
-  def add_activity(amount, event, time = Time.now)
-    t = time.strftime('%d/%m/%Y')
+  def add_activity(amount, event, date = Time.now)
+    d = date.strftime('%d/%m/%Y')
     amount_string = format('%<digits>.2f', digits: amount)
     balance_string = format('%<digits>.2f', digits: @balance)
     if event == 'deposit'
-      @activity.push("#{t} || #{amount_string} || || #{balance_string}")
+      @activity.push("#{d} || #{amount_string} || || #{balance_string}")
     else
-      @activity.push("#{t} || || #{amount_string} || #{balance_string}")
+      @activity.push("#{d} || || #{amount_string} || #{balance_string}")
     end
   end
 end
