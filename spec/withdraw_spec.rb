@@ -12,6 +12,10 @@ describe ' #withdraw' do
     expect(account.balance).to eq(-40.00)
   end
 
+  it 'raises an error if the withdraw goes over the overdraft limit' do
+    expect { account.withdraw(101) }.to raise_error 'ERROR overdraft limit reached'
+  end
+
   it 'stores the date, the withdrawn amount and balance' do
     t = Time.now.strftime('%d/%m/%Y')
     account.withdraw(10)

@@ -12,6 +12,8 @@ class Account
   end
 
   def withdraw(amount)
+    fail 'ERROR overdraft limit reached' if @balance - amount < -100
+
     @balance -= amount.to_f
     add_activity(amount, 'withdraw')
   end

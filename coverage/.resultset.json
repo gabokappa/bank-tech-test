@@ -27,8 +27,8 @@
         1,
         null,
         1,
-        11,
-        11,
+        12,
+        12,
         null,
         null,
         1,
@@ -37,6 +37,8 @@
         null,
         null,
         1,
+        6,
+        null,
         5,
         5,
         null,
@@ -115,7 +117,7 @@
       "/Users/user1/Projects/week-10/spec/withdraw_spec.rb": [
         1,
         1,
-        4,
+        5,
         1,
         1,
         1,
@@ -125,6 +127,10 @@
         1,
         1,
         1,
+        null,
+        null,
+        1,
+        2,
         null,
         null,
         1,
@@ -135,6 +141,6 @@
         null
       ]
     },
-    "timestamp": 1571734454
+    "timestamp": 1571736611
   }
 }
