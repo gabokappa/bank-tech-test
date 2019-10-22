@@ -1,9 +1,10 @@
 class Account
   attr_reader :balance, :activity
 
-  def initialize
+  def initialize(overdraft = -100)
     @balance = 0
     @activity = []
+    @overdraft= overdraft
   end
 
   def deposit(amount)
@@ -12,7 +13,7 @@ class Account
   end
 
   def withdraw(amount)
-    fail 'ERROR overdraft limit reached' if @balance - amount < -100
+    fail 'ERROR overdraft limit reached' if @balance - amount < @overdraft
 
     @balance -= amount.to_f
     add_activity(amount, 'withdraw')
